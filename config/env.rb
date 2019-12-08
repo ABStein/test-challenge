@@ -1,0 +1,1 @@
+$DARK_SKY_API_KEY                  = 'acc8c6d4254c00017f358b732bf29c3d'

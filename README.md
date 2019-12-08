@@ -1,24 +1,31 @@
-# README
+# Test Suite for Rocketmiles search and login UI elements
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started 
 
-Things you may want to cover:
+### Installing
 
-* Ruby version
+First fork and clone the project.
 
-* System dependencies
+After this you should run 
 
-* Configuration
+```
+bundle install
+```
 
-* Database creation
+In order to install all them gems for the project.
 
-* Database initialization
+This will also require a creation of a database although we will not be using it.
 
-* How to run the test suite
+```
+rails db:create
+```
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Running UI tests
 
-* ...
+```
+bundle exec rspec spec/features/(file to run)
+```
+
+If you want them all to run then dont specify a file and run them all. All files for the tests exist under spec/features. 
+
