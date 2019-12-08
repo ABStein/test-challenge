@@ -1,7 +1,9 @@
 example_id                                        | status | run_time     |
 ------------------------------------------------- | ------ | ------------ |
-./spec/features/log_in_spec.rb[1:1]               | passed | 8.93 seconds |
-./spec/features/search_functionality_spec.rb[1:1] | passed | 8.2 seconds  |
-./spec/features/search_functionality_spec.rb[1:2] | passed | 5.3 seconds  |
-./spec/features/search_functionality_spec.rb[1:3] | passed | 4.67 seconds |
-./spec/features/search_functionality_spec.rb[1:4] | passed | 6.38 seconds |
+./spec/features/log_in_spec.rb[1:1]               | passed | 8.85 seconds |
+./spec/features/log_in_spec.rb[1:2]               | passed | 5.43 seconds |
+./spec/features/log_in_spec.rb[1:3]               | passed | 4.74 seconds |
+./spec/features/search_functionality_spec.rb[1:1] | passed | 8.49 seconds |
+./spec/features/search_functionality_spec.rb[1:2] | passed | 5.52 seconds |
+./spec/features/search_functionality_spec.rb[1:3] | passed | 5.02 seconds |
+./spec/features/search_functionality_spec.rb[1:4] | passed | 6.54 seconds |
