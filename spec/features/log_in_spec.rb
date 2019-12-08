@@ -4,12 +4,12 @@ describe 'Rocket Miles Log In Functionality', :type => :feature do
   	sleep 3
 	end	
 
-	it 'should test that username and password are not valid' do
+	it 'should test that username and password are valid' do
 		find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[1]/div/div[4]/a').click
 
-		fill_in 'Your Email Address', with: 'andrewstein.career@gmail.com'
+		fill_in 'Your Email Address', with: ENV["VALID_EMAIL"]
 
-		fill_in 'Password', with: '2School4Kewl!'
+		fill_in 'Password', with: ENV["VALID_PW"]
 
 		click_button 'Sign In'
 
