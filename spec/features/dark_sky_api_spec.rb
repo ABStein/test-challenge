@@ -23,7 +23,7 @@ describe 'Testing the Dark Sky API' do
     expect_status(403)
   end
 
-  it 'should hit the api and get a 400' do
+  it 'should hit the api with a poorly formatted request' do
     api_key = ENV["API_KEY"]
   	get "https://api.darksky.net/forecast/#{api_key}/482y3bhec"
   	expect_json(
