@@ -6,7 +6,7 @@
 
 First fork and clone the project.
 
-After this you should run 
+After this run 
 
 ```
 bundle install
@@ -20,8 +20,7 @@ This will also require a creation of a database although we will not be using it
 rails db:create
 ```
 
-
-## Running UI tests
+## Running UI/API tests
 
 ```
 bundle exec rspec spec/features/(file to run)
