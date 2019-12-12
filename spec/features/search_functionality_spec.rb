@@ -27,7 +27,7 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 		# loading takes a while in order to ensure redirect to the serach summary
 		# not sure how much in detail we should check this.
 		sleep 10
-		# expect(page).to have_xpath('//*[@id="search-page-container"]/div[2]/gofr-search-summary/div')
+		find(:xpath, '//*[@id="search-and-filter-container-mobile-first"]/div[1]/gofr-search-form/div/form/div[1]/gofr-location-search/div[2]/input').click
 	end
 
 	it 'should test invalid rewards program given' do
@@ -114,14 +114,11 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 		#click start date
 		find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[1]').click
 
-		# check that the date is clickable
-		find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[3]/td[4]/a').click
+		# check that the date is clickable dec 23rd
+		find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[2]/a').click
 
-		# click end date
-		find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[1]').click
-
-		# check that end date is clickable
-		find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[2]/td[6]/a').click
+		# check that end date is clickable dec 26th
+		find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[5]/a').click
 
 		# choose 1 guest
 		find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[6]/div/div/button/span[2]').click
@@ -145,6 +142,8 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 
 		click_button 'Search properties and earn rewards'
 		sleep 10
+
+		find(:xpath, '//*[@id="search-and-filter-container-mobile-first"]/div[1]/gofr-search-form/div/form/div[1]/gofr-location-search/div[2]/input').click
 	end
 
 	it 'should check functionality of the room button' do
@@ -163,14 +162,11 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 		#click start date
 		find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[1]').click
 
-		# check that the date is clickable
-		find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[3]/td[4]/a').click
+		# check that the date is clickable dec 23rd
+		find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[2]/a').click
 
-		# click end date
-		find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[1]').click
-
-		# check that end date is clickable
-		find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[2]/td[6]/a').click
+		# check that end date is clickable dec 26th
+		find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[5]/a').click
 
 		# choose 1 guest
 		find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[6]/div/div/button/span[2]').click
@@ -190,5 +186,7 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 
 		click_button 'Search properties and earn rewards'
 		sleep 10
+
+		find(:xpath, '//*[@id="search-and-filter-container-mobile-first"]/div[1]/gofr-search-form/div/form/div[1]/gofr-location-search/div[2]/input').click
 	end
 end
