@@ -2,6 +2,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'airborne'
 RSpec.configure do |config|
+
   config.include Capybara::DSL
 
   config.expect_with :rspec do |expectations|
