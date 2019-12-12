@@ -59,13 +59,4 @@ describe 'Testing a Facebook API' do
 
     expect_status(400)
   end
-
-  it 'should create a post for account given' do
-    facebook_api_key = ENV["FACEBOOK_ACCESS_TOKEN"]
-
-    post "https://graph.facebook.com/10162770320265438/feed
-    ?message=Awesome!
-    &access_token=#{facebook_api_key}"
-  end
-
 end
