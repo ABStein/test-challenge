@@ -4,7 +4,7 @@ require 'rails_helper'
 describe 'Rocket Miles Log In Functionality', :type => :feature do
 	before(:each) do
 		visit '/'
-  	sleep 5
+  	sleep 3
 
   	# click sign in
   	find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[1]/div/div[4]/a').click
@@ -36,7 +36,7 @@ describe 'Rocket Miles Log In Functionality', :type => :feature do
 		# exit the sign in screen
 		find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div/div/div[1]/div/button/span[1]').click
 		# check that the sign in link is available
-		expect(page).to have_xpath('//*[@id="rm3-home-page"]/div[1]/div[4]/div[1]/div/div[4]/a'), 'Sign In or Join'
+		expect(page).to have_xpath('//*[@id="rm3-home-page"]/div[1]/div[4]/div[1]/div/div[4]/a')
 	end
 
 	it 'should test that password is invalid' do
@@ -50,7 +50,7 @@ describe 'Rocket Miles Log In Functionality', :type => :feature do
 		# exit the login
 		find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div/div/div[1]/div/button/span[1]').click
 		# check that the sign in link is available
-		expect(page).to have_xpath('//*[@id="rm3-home-page"]/div[1]/div[4]/div[1]/div/div[4]/a'), 'Sign In or Join'
+		expect(page).to have_xpath('//*[@id="rm3-home-page"]/div[1]/div[4]/div[1]/div/div[4]/a')
 	end
 
 	it 'should test sign up button works and shows correct fields' do

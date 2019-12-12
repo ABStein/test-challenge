@@ -2,9 +2,8 @@ require 'spec_helper'
 require 'rails_helper'
 
 describe 'Rocket Miles Search Functionality', :type => :feature do
-
 	describe 'Search functionality - City and Rewards selection' do
-			
+
 		before(:each) do
 			visit '/'
 	  	sleep 3
@@ -14,9 +13,8 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 			# set city and click on auto complete
 			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/input').click
 			fill_in 'Where do you need a hotel?', with: 'New York, NY'
-
-			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/div/ul/li[1]/a').click
 			sleep 2
+			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/div/ul/li[1]/a').click
 
 			# set reward prgram and click on auto complete
 			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/input').click
@@ -36,6 +34,7 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 			# set city and click on auto complete
 			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/input').click
 			fill_in 'Where do you need a hotel?', with: 'New York, NY'
+			sleep 2
 			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/div/ul/li[1]').click
 
 			# search results
@@ -49,6 +48,7 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 			# set reward prgram and click on auto complete
 			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/input').click
 			fill_in 'Select reward program', with: 'Amazon.com Gift Card'
+			sleep 2
 			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/div/ul/li/a').click
 
 			# search results
@@ -64,46 +64,51 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 		before(:each) do
 			visit '/'
 	  	sleep 3
+
+	  	# set city and click on auto complete
+	  	find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/input').click
+	  	fill_in 'Where do you need a hotel?', with: 'New York, NY'
+	  	sleep 2
+	  	find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/div/ul/li[1]/a').click
+
+	  	# set reward prgram and click on auto complete
+	  	find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/input').click
+	  	fill_in 'Select reward program', with: 'Amazon.com Gift Card'
+	  	find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/div/ul/li/a').click
 		end
 
 		it 'should check that start date is clickable' do
-			# set city and click on auto complete
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/input').click
-			fill_in 'Where do you need a hotel?', with: 'New York, NY'
-
-			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/div/ul/li[1]/a').click
-			sleep 2
-
-			# set reward prgram and click on auto complete
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/input').click
-			fill_in 'Select reward program', with: 'Amazon.com Gift Card'
-			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/div/ul/li/a').click
-
 			#click start date
 			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[1]').click
 
 			# check that the date is clickable dec 23rd
 			find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[2]/a').click
-		end
-
-		it 'should check that end date is clickable' do
-			# set city and click on auto complete
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/input').click
-			fill_in 'Where do you need a hotel?', with: 'New York, NY'
-
-			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/div/ul/li[1]/a').click
 			sleep 2
-
-			# set reward prgram and click on auto complete
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/input').click
-			fill_in 'Select reward program', with: 'Amazon.com Gift Card'
-			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/div/ul/li/a').click
-
-			# click end date
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[1]').click
 
 			# check that end date is clickable dec 26th
 			find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[5]/a').click
+
+			# search results
+			click_button 'Search properties and earn rewards'
+			# loading takes a while in order to ensure redirect to the serach summary
+			# not sure how much in detail we should check this.
+			sleep 10
+			find(:xpath, '//*[@id="search-and-filter-container-mobile-first"]/div[1]/gofr-search-form/div/form/div[1]/gofr-location-search/div[2]/input').click
+		end
+
+		it 'should check that end date is clickable' do
+			# click end date
+			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[3]').click
+
+			# check that end date is clickable dec 26th
+			find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[5]/a').click
+
+			# search results
+			click_button 'Search properties and earn rewards'
+			# loading takes a while in order to ensure redirect to the serach summary
+			# not sure how much in detail we should check this.
+			sleep 10
+			find(:xpath, '//*[@id="search-and-filter-container-mobile-first"]/div[1]/gofr-search-form/div/form/div[1]/gofr-location-search/div[2]/input').click
 		end
 	end
 
@@ -112,30 +117,29 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 		before(:each) do
 			visit '/'
 	  	sleep 3
+
+	  	# set city and click on auto complete
+	  	find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/input').click
+	  	fill_in 'Where do you need a hotel?', with: 'New York, NY'
+	  	sleep 2
+	  	find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/div/ul/li[1]/a').click
+
+	  	# set reward prgram and click on auto complete
+	  	find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/input').click
+	  	fill_in 'Select reward program', with: 'Amazon.com Gift Card'
+	  	find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/div/ul/li/a').click
+
+	  	#click start date
+	  	find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[1]').click
+
+	  	# check that the date is clickable dec 23rd
+	  	find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[2]/a').click
+
+	  	# check that end date is clickable dec 26th
+	  	find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[5]/a').click
 		end
 
 		it 'should check functionality of the guests button' do
-			# set city and click on auto complete
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/input').click
-			fill_in 'Where do you need a hotel?', with: 'New York, NY'
-
-			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/div/ul/li[1]/a').click
-			sleep 2
-
-			# set reward prgram and click on auto complete
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/input').click
-			fill_in 'Select reward program', with: 'Amazon.com Gift Card'
-			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/div/ul/li/a').click
-
-			#click start date
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[1]').click
-
-			# check that the date is clickable dec 23rd
-			find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[2]/a').click
-
-			# check that end date is clickable dec 26th
-			find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[5]/a').click
-
 			# choose 1 guest
 			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[6]/div/div/button/span[2]').click
 			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[6]/div/div/ul/li[1]/a').click
@@ -164,27 +168,6 @@ describe 'Rocket Miles Search Functionality', :type => :feature do
 		end
 
 		it 'should check functionality of the room button' do
-			# set city and click on auto complete
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/input').click
-			fill_in 'Where do you need a hotel?', with: 'New York, NY'
-
-			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[1]/gofr-location-search/div/div/ul/li[1]/a').click
-			sleep 2
-
-			# set reward prgram and click on auto complete
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/input').click
-			fill_in 'Select reward program', with: 'Amazon.com Gift Card'
-			find(:xpath, '/html/body/div[1]/div[4]/div[3]/div/form/div[2]/gofr-program-autosuggest/div/div/ul/li/a').click
-
-			#click start date
-			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[4]/div[1]').click
-
-			# check that the date is clickable dec 23rd
-			find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[2]/a').click
-
-			# check that end date is clickable dec 26th
-			find(:xpath, '//*[@id="ui-datepicker-div"]/table/tbody/tr[4]/td[5]/a').click
-
 			# choose 1 guest
 			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[6]/div/div/button/span[2]').click
 			find(:xpath, '//*[@id="rm3-home-page"]/div[1]/div[4]/div[3]/div/form/div[6]/div/div/ul/li[1]/a').click
