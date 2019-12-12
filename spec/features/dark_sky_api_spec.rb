@@ -56,3 +56,20 @@ describe 'Testing the Dark Sky API' do
     expect_status(400)
   end
 end
+
+
+describe 'Testing a Facebook API' do
+  it 'should hit the api and get back full name with id' do
+    facebook_api_key = ENV["FACEBOOK_ACCESS_TOKEN"]
+
+    get "https://graph.facebook.com/v5.0/me?fields=id%2Cfirst_name%2Clast_name&access_token=#{facebook_api_key}"
+
+    expect_json(
+      id: "10162770320265438",
+      first_name: "Avrumi",
+      last_name: "Stein"
+      )
+
+    expect_status(200)
+  end
+end
