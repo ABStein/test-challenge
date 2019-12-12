@@ -6,23 +6,23 @@
 
 First fork and clone the project.
 
-You will need at least ruby 2.3.1 or higher as well as rails 5.2.4 or higher
+You will need at least ruby 2.3.1 or higher as well as rails 5.2.4 or higher.
 
-you can you use `brew` for these installations, more info here https://brew.sh/
+You can you use `brew` for these installations, more info here https://brew.sh/
 
 After this run 
 ```
 brew install rbenv
 ```
-this will help maintain ruby versions, after this do
+this will help maintain ruby versions. After this do
 
 ```
 rbenv install 2.4.0
 rbenv global 2.4.0
 ```
-to install and check the version
+to install and check the version.
 
-then `gem install rails -v 5.2.4`
+Then `gem install rails -v 5.2.4` and checking `rails -v` to make sure you have the correct version installed.
 
 After these are installed, cd into the project and run
 
